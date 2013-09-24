@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AndroidBoothcamp</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Bye World!</string>
+    <string name="title_activity_second">Bye Bye..</string>
+
+</resources>
