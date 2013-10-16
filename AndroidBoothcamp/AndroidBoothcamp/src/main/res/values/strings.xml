@@ -6,5 +6,6 @@
     <string name="hello_world">Bye World!</string>
     <string name="title_activity_second">Bye Bye..</string>
     <string name="hint_ino">I.No</string>
+    <string name="hint_name">Scholar Name</string>
 
 </resources>

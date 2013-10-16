@@ -1,15 +1,16 @@
 package com.android.boothcamp;
 
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,9 @@ import com.android.boothcamp.database.model.Scholar;
 public class LauncherActivity extends Activity {
     public DatabaseHelper dbHelper;
 
+    public Button btnClickMe;
+    public ListView scholarList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,17 +31,22 @@ public class LauncherActivity extends Activity {
         dbHelper = new DatabaseHelper(LauncherActivity.this);
         insertData();
 
-        Button btnClickMe = (Button) findViewById(R.id.btnClick);
+        btnClickMe = (Button) findViewById(R.id.btnClick);
+        scholarList = (ListView) findViewById(R.id.scholarsList);
+
         btnClickMe.setOnClickListener(clikMeListener);
+
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.query(false, Scholar.TABLE_NAME, null, null, null, null, null, null, null);
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(LauncherActivity.this, R.layout.row_template, cursor, new String[] { Scholar.INO, Scholar.NAME}, new int[] { R.id.tvINo, R.id.tvName }, CursorAdapter.NO_SELECTION);
+        scholarList.setAdapter(adapter);
     }
 
     private View.OnClickListener clikMeListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             String iNo = ((EditText) findViewById(R.id.etInput)).getText().toString();
-
             SQLiteDatabase db = dbHelper.getWritableDatabase();
-
             Cursor cursor = db.query(false, Scholar.TABLE_NAME, null, Scholar.INO + "=?", new String[]{iNo}, null, null, null, null);
 
             if(cursor.moveToFirst()) {
