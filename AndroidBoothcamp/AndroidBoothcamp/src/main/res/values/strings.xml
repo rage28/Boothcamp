@@ -5,5 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Bye World!</string>
     <string name="title_activity_second">Bye Bye..</string>
+    <string name="hint_ino">I.No</string>
 
 </resources>

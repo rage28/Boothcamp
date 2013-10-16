@@ -12,9 +12,40 @@
         android:id="@+id/btnClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:onClick="startNewActivity"
-        android:text="Click Me!!" />
+        android:text="Retrieve"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etInput"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/btnClick"
+        android:layout_alignTop="@+id/btnClick" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:hint="@string/hint_ino"
+        android:id="@+id/tvINo"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:layout_marginTop="34dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:hint="Scholar Name"
+        android:id="@+id/tvName"
+        android:gravity="center"
+        android:layout_below="@+id/tvINo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true" />
 
 </RelativeLayout>
